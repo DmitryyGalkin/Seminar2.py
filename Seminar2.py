@@ -12,19 +12,43 @@ for el in nomenclature:
 элементов последний сохранить на своем месте. Для заполнения списка элементов 
 необходимо использовать функцию input()."""
 
-user_list = list(input("Введите значения списка: "))
-if len(user_list) % 2 == 0:
-    i = 0
-    while i < len(user_list):
-        el = user_list[i]
-        user_list[i] = user_list[i + 1]
-        user_list[i + 1] = el
-        i += 2
+# user_list = list(input("Введите значения списка: "))
+# if len(user_list) % 2 == 0:
+#     i = 0
+#     while i < len(user_list):
+#         el = user_list[i]
+#         user_list[i] = user_list[i + 1]
+#         user_list[i + 1] = el
+#         i += 2
+# else:
+#     i = 0
+#     while i < len(user_list) - 1:
+#         el = user_list[i]
+#         user_list[i] = user_list[i + 1]
+#         user_list[i + 1] = el
+#         i += 2
+# print(user_list)
+
+"""Пользователь вводит месяц в виде целого числа от 1 до 12. Сообщить к какому 
+времени года относится месяц (зима, весна, лето, осень). Напишите решения через 
+list и через dict."""
+
+# calendar = ["январь", "февраль", "март", "апрель", "май", "июнь", "июль",
+#             "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
+# month = int(input("Введите месяц от 1 до 12: "))
+# if month > 0 and month < 13:
+#     for i in calendar:
+#         i = month - 1
+#         print(calendar[i])
+#         break
+# else:
+#     print("Ввели некорректное число!")
+
+calendar_dict = {1: "Январь", 2: "Февраль", 3: "Март", 4: "Апрель", 5: "Май",
+                 6: "Июнь", 7: "Июль", 8: "Август", 9: "Сентябрь",
+                 10: "Октябрь", 11: "Ноябрь", 12: "Декабрь"}
+month = int(input("Введите значение от 1 до 12: "))
+if month > 0 and month < 13:
+    print(calendar_dict.get(month))
 else:
-    i = 0
-    while i < len(user_list) - 1:
-        el = user_list[i]
-        user_list[i] = user_list[i + 1]
-        user_list[i + 1] = el
-        i += 2
-print(user_list)
+    print("Нет месяца под таким номером!")
