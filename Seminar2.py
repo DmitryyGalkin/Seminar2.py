@@ -57,11 +57,32 @@ list и через dict."""
  Вывести каждое слово с новой строки. Строки необходимо пронумеровать. 
  Если в слово длинное, выводить только первые 10 букв в слове."""
 
-user_string = input("Введите строку из нескольких слов: ")
-str_format = user_string.split(" ")
-index = 0
-for value in str_format:
-    if len(value) > 10:
-        value = value[0:10]
-    print(index, value)
-    index += 1
+# user_string = input("Введите строку из нескольких слов: ")
+# str_format = user_string.split(" ")
+# index = 0
+# for value in str_format:
+#     if len(value) > 10:
+#         value = value[0:10]
+#     print(index, value)
+#     index += 1
+"""5)Реализовать структуру «Рейтинг», представляющую собой не возрастающий набор
+ натуральных чисел. У пользователя необходимо запрашивать новый элемент 
+ рейтинга. Если в рейтинге существуют элементы с одинаковыми значениями, то 
+ новый элемент с тем же значением должен разместиться после них."""
+
+user_list = [8, 7, 5, 5, 4, 3, 2]
+numb = int(input("Введите число: "))
+count = user_list.count(numb)
+for el in user_list:
+    if count > 0:
+        i = user_list.index(numb)
+        user_list.insert(i+count, numb)
+        break
+    else:
+        if numb > el:
+            j = user_list.index(el)
+            user_list.insert(j, numb)
+            break
+        elif numb < user_list[len(user_list) - 1]:
+            user_list.append(numb)
+print(user_list)
