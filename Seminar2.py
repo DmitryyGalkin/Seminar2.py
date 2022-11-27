@@ -70,19 +70,49 @@ list и через dict."""
  рейтинга. Если в рейтинге существуют элементы с одинаковыми значениями, то 
  новый элемент с тем же значением должен разместиться после них."""
 
-user_list = [8, 7, 5, 5, 4, 3, 2]
-numb = int(input("Введите число: "))
-count = user_list.count(numb)
-for el in user_list:
-    if count > 0:
-        i = user_list.index(numb)
-        user_list.insert(i+count, numb)
-        break
-    else:
-        if numb > el:
-            j = user_list.index(el)
-            user_list.insert(j, numb)
-            break
-        elif numb < user_list[len(user_list) - 1]:
-            user_list.append(numb)
-print(user_list)
+# user_list = [8, 7, 5, 5, 4, 3, 2]
+# numb = int(input("Введите число: "))
+# count = user_list.count(numb)
+# for el in user_list:
+#     if count > 0:
+#         i = user_list.index(numb)
+#         user_list.insert(i+count, numb)
+#         break
+#     else:
+#         if numb > el:
+#             j = user_list.index(el)
+#             user_list.insert(j, numb)
+#             break
+#         elif numb < user_list[len(user_list) - 1]:
+#             user_list.append(numb)
+# print(user_list)
+
+"""6) *Реализовать структуру данных «Товары». Она должна представлять собой
+ список кортежей. Каждый кортеж хранит информацию об отдельном товаре. 
+ В кортеже должно быть два элемента — номер товара и словарь с параметрами 
+ (характеристиками товара: название, цена, количество, единица измерения). 
+ Структуру нужно сформировать программно, т.е. запрашивать все данные 
+ у пользователя."""
+
+goods = []
+while input("Добавить товар? Введите y/n: ") == 'y':
+    product = {}
+    number = int(input("Введите номер товара: "))
+    product_name = input("Введите название товара: ")
+    product_price = int(input("Введите цену товара: "))
+    product_amount = int(input(("Введите количество товара: ")))
+    piece = "шт"
+    product["Название"] = product_name
+    product["Цена"] = product_price
+    product["Количество"] = product_amount
+    product["Ед"] = piece
+    goods.append(tuple([number, product]))
+print(goods)
+analitics = {}
+for good in goods:
+    for key, value in good[1].items():
+        if key in analitics:
+            analitics[key].append(value)
+        else:
+            analitics[key] = [value]
+print(analitics)
